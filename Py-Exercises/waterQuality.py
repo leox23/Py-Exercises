@@ -9,10 +9,10 @@ riesgo0 = "Sin riesgo alguno, continuar el control y la vigilancia."
 
 def waterQuality(state):
 	"""
-Limitacion: en la concatenacion dentro de las printeadas no se como quitarle lso espacios al concatenar unos con otros, ya que lo hice concatenando las variabes que contienen los strings
+Limitacion: en la concatenacion dentro de las printeadas no se como quitarle los espacios al concatenar unos con otros, ya que lo hice concatenando las variabes que contienen los strings
 	"""
 	if re.search("[|¬°\"\'!#$%&/\(\)=?¿¡+¨´*~\{\}\[\]\^\`\-,;:_\<\>]", state):
-		print("desde symbolFavor agregar un nivel de riesgo valido, sin simbolos, o numero positivo IRCA(%) valido")
+		print("Favor agregar un nivel de riesgo valido o numero positivo IRCA(%) valido, debe ser sin simbolos.")
 		return
 	elif not re.search("[a-zA-Z]|\s|\.", state):
 		state = int(state)
@@ -20,7 +20,6 @@ Limitacion: en la concatenacion dentro de las printeadas no se como quitarle lso
 		state = float(state)
 	else:
 		state = (state.strip()).upper()
-
 	if isinstance(state, str):
 		if state == "INVIABLE":
 			print(prefijoRiesgo,riesgo1,',',riesgo2,',',riesgo3,',',riesgo4,end=".")
@@ -50,4 +49,4 @@ Limitacion: en la concatenacion dentro de las printeadas no se como quitarle lso
 
 #esto era para repetir varias veces la prueba
 #for i in range(10):
-waterQuality(input('Ingrese el tipo de riesgo, o numero del 0 al 100: '))
+waterQuality(input('Ingrese el tipo de riesgo, o numero del 0 al 100:'))
